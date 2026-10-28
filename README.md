@@ -1,12 +1,12 @@
 # US Government HR Data Intake & Reconciliation
-**Case study | Public City and County of San Francisco HR data**
+
 
 ## The assignment
-Demonstrate a defensible data-intake workflow for salary schedules and classification records. The primary goal is accurate matching of job classifications, source verification, exception handling, and reproducible quality checks—not dashboard design.
+Demonstrate a defensible data-intake workflow for salary schedules and classification records. The primary goal is accurate matching of job classifications, source verification, exception handling, and reproducible quality checks-not dashboard design.
 
 ## Public source datasets
-- **Compensation Plan**: [SF Open Data / h3jp-c25d](https://data.sf.gov/d/h3jp-c25d) — 20,637 records, 32 original columns, effective dates from July 2020 through July 2026.
-- **Hourly Rates of Pay by Classification and Step**: [SF Open Data / t59u-ig8c](https://data.sf.gov/d/t59u-ig8c) — 34,729 records, 30 original columns, effective dates from July 2014 through January 2026.
+- **Compensation Plan**: [SF Open Data / h3jp-c25d](https://data.sf.gov/d/h3jp-c25d) - 20,637 records, 32 original columns, effective dates from July 2020 through July 2026.
+- **Hourly Rates of Pay by Classification and Step**: [SF Open Data / t59u-ig8c](https://data.sf.gov/d/t59u-ig8c) - 34,729 records, 30 original columns, effective dates from July 2014 through January 2026.
 - Original provided CSV files: `export.csv` and `export(1).csv`. Their SHA-256 values and individual source-line identifiers are documented in the workbook. **All included raw data values are unchanged.**
 
 ## Excel deliverable
@@ -30,7 +30,7 @@ Open `US_Government_HR_Data_Reconciliation_Portfolio.xlsx` and visit **Guide** f
 2. Return classification, union code, hourly first step and biweekly minimum **only for a unique key match**.
 3. Compare hourly first-step rates numerically; differences beyond **0.0001** are flagged for review.
 4. Use exact official title comparison within a unique key; treat historical title changes separately rather than blindly rewriting old records.
-5. Flag duplicate rate keys—even if the underlying rate records happen to agree—and keep review decisions separate from formula output.
+5. Flag duplicate rate keys-even if the underlying rate records happen to agree-and keep review decisions separate from formula output.
 6. Estimate annual pay as **biweekly minimum × 26 pay periods**, with the period count visible and editable on Guide. This is an illustration, not an official payroll annualization or union-contract determination.
 
 ## Main findings
@@ -51,6 +51,6 @@ python hr_data_audit.py --plan export.csv --rates "export(1).csv" --out hr_audit
 The script leaves source data unchanged and produces `hr_audit_findings.csv` and `audit_summary.json` with line-level evidence. This is a secondary verification layer; the main work remains formula-based in Excel.
 
 ## NOTE:
-“I used real publicly available San Francisco HR records rather than synthetic examples. In Excel, I preserved the source rows, standardized a three-part matching key, and used XLOOKUP and other validation formulas to reconcile job classifications, union codes and pay rates. The workbook detects real pay discrepancies, duplicate keys and coverage gaps, with an exception log and editable reviewer decisions. I also wrote a small Python script to independently audit the full exports. The key principle is not forcing a match or assuming an unmatched record is an error.”
+“I used real publicly available San Francisco HR records. In Excel, I preserved the source rows, standardized a three-part matching key, and used XLOOKUP and other validation formulas to reconcile job classifications, union codes and pay rates. The workbook detects real pay discrepancies, duplicate keys and coverage gaps, with an exception log and editable reviewer decisions. I also wrote a small Python script to independently audit the full exports. The key principle is not forcing a match or assuming an unmatched record is an error.”
 
 *Portfolio demonstration based only on the publicly available, uploaded extracts; not endorsed by the City and County of San Francisco.*
