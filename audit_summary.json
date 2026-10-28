@@ -1,0 +1,14 @@
+{
+  "plan_source_records": 20637,
+  "rates_source_records": 34729,
+  "unique_matches": 18259,
+  "source_only_plan_records": 2378,
+  "same_key_substantive_title_disagreements": 0,
+  "same_key_capitalization_only_title_variants": 1,
+  "same_key_hourly_step1_disagreements": 2,
+  "duplicate_rate_key_groups": 1,
+  "findings_exported": 2382,
+  "findings_file": "/mnt/data/hr_audit_findings.csv",
+  "match_key": "job code | uppercase pay set | effective date (YYYY-MM-DD)",
+  "note": "No source records were modified. A source-only result is not proof of an error."
+}
